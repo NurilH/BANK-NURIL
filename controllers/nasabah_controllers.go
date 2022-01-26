@@ -26,8 +26,8 @@ func CreateNasabahControllers(c echo.Context) error {
 
 func GetAllNasabahControllers(c echo.Context) error {
 	data, e := databases.GetAllNasabah()
-	if e != nil {
-		return c.JSON(http.StatusBadRequest, response.BadRequestResponse("Bad Request"))
+	if e != nil || data == nil {
+		return c.JSON(http.StatusBadRequest, response.BadRequestResponse("Bad Request or data not found"))
 	}
 	return c.JSON(http.StatusOK, response.SuccessResponseData("Success Operation", data))
 }
@@ -40,7 +40,7 @@ func GetByKtpNasabahControllers(c echo.Context) error {
 
 	data, e := databases.GetByKtpNasabah(ktp)
 	if e != nil || data == nil {
-		return c.JSON(http.StatusBadRequest, response.BadRequestResponse("Bad Request"))
+		return c.JSON(http.StatusBadRequest, response.BadRequestResponse("Bad Request or data not found"))
 	}
 	return c.JSON(http.StatusOK, response.SuccessResponseData("Success Operation", data))
 }
@@ -53,7 +53,7 @@ func DeleteByIdNasabahControllers(c echo.Context) error {
 
 	data, e := databases.DeleteByIdNasabah(Id)
 	if e != nil || data == nil {
-		return c.JSON(http.StatusBadRequest, response.BadRequestResponse("Bad Request"))
+		return c.JSON(http.StatusBadRequest, response.BadRequestResponse("Bad Request or data not found"))
 	}
 	return c.JSON(http.StatusOK, response.SuccessResponseNonData("Delete Success"))
 }
@@ -69,7 +69,7 @@ func UpdateNasabahControllers(c echo.Context) error {
 	data, err := databases.UpdateNasabah(Id, &new_nasabah)
 
 	if err != nil || data == nil {
-		return c.JSON(http.StatusBadRequest, response.BadRequestResponse("Bad Request"))
+		return c.JSON(http.StatusBadRequest, response.BadRequestResponse("Bad Request or data not found"))
 	}
 	return c.JSON(http.StatusOK, response.SuccessResponseData("Success Operation", data))
 }
