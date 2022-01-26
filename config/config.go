@@ -12,7 +12,8 @@ var DB *gorm.DB
 // inisialisasi database
 func InitDB() {
 
-	config := "root:nuril123@tcp(127.0.0.1:3306)/test_bank?charset=utf8mb4&parseTime=True&loc=Local"
+	// config := "root:nuril123@tcp(127.0.0.1:3306)/test_bank?charset=utf8mb4&parseTime=True&loc=Local"
+	config := "root:nuril123@tcp(bankDB)/test_bank?charset=utf8mb4&parseTime=True&loc=Local"
 
 	var e error
 
