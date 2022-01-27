@@ -8,7 +8,7 @@
 ## Documentasi Project
 
 ### * Menjalankan program
-- Akses link <b> https://labs.play-with-docker.com</b> buat instance disana. Setela berhasil clone repository pada intance tersebut
+- Akses link <b> https://labs.play-with-docker.com</b> buat instance disana. Setelah berhasil clone repository pada intance tersebut
 ```
 $ git clone https://github.com/NurilH/BANK-NURIL.git
 ```
